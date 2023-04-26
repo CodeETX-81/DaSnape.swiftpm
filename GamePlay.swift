@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct GamePlay: View {
+    @State var SnakePositionX = 0
+    @State var SnakePositionY = 0
+    @State var SnakeUp = false
+    @State var SnakeDown = false
+    @State var SnakeRight = false
+    @State var SnakeLeft = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button {
+            SnakeUp.toggle()
+        } label: {
+            Image(systemName: "arrowtriangle.up.square.fill")
+        }
+        Button {
+            SnakeDown.toggle()
+        } label: {
+            Image(systemName: "arrowtriangle.down.square.fill")
+        }
+        Button {
+            SnakeRight.toggle()
+        } label: {
+            Image(systemName: "arrowtriangle.forward.square.fill")
+        }
+        Button {
+            SnakeLeft.toggle()
+        } label: {
+            Image(systemName: "arrowtriangle.backward.square.fill")
+        }
+
+
     }
 }
 
