@@ -9,12 +9,37 @@ import SwiftUI
 
 struct Achievements: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.green.ignoresSafeArea() // 1
+            VStack {
+                Group{
+                    Text("you actually got the game???")
+                        .font(.title)
+                        .frame(maxWidth: .infinity)
+                        .background(.red)
+                    Divider()
+                  
+                }
+                Group{
+                    Text("So this is a grap")
+                        .font(.title)
+                        .frame(maxWidth: .infinity)
+                        .background(.red)
+                    Divider()
+                }
+                Text("")
+                    .font(.title)
+                    .frame(maxWidth: .infinity)
+                    .background(.red)
+            }
+        }
+        .accentColor(Color.black)
     }
-}
-
-struct Achievements_Previews: PreviewProvider {
-    static var previews: some View {
-        Achievements()
+    
+    
+    struct Achievements_Previews: PreviewProvider {
+        static var previews: some View {
+            Achievements()
+        }
     }
 }
