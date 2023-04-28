@@ -8,29 +8,73 @@
 import SwiftUI
 
 struct Achievements: View {
+    @State var showingAlert1 = false
+    @State var showingAlert2 = false
+    @State var showingAlert3 = false
+    @State var showingAlert4 = false
     var body: some View {
         ZStack {
             Color.green.ignoresSafeArea() // 1
             VStack {
-                Group{
-                    Text("you actually got the game???")
-                        .font(.title)
-                        .frame(maxWidth: .infinity)
-                        .background(.red)
-                    Divider()
-                  
+                Button("You actually got the game?!") {
+                    showingAlert1 = true
                 }
-                Group{
-                    Text("So this is a grap")
-                        .font(.title)
-                        .frame(maxWidth: .infinity)
-                        .background(.red)
-                    Divider()
+                .font(.title)
+                .frame(maxWidth: .infinity)
+                .background(.red)
+                
+                .alert(isPresented:$showingAlert1) {
+                    Alert(
+                        title: Text("Open the game for the first time")
+                        
+                        
+                    )
                 }
-                Text("")
-                    .font(.title)
-                    .frame(maxWidth: .infinity)
-                    .background(.red)
+                Divider()
+                Button("So this is a grape") {
+                    showingAlert2 = true
+                }
+                .font(.title)
+                .frame(maxWidth: .infinity)
+                .background(.red)
+                
+                .alert(isPresented:$showingAlert2) {
+                    Alert(
+                        title: Text("Eat your first grape")
+        
+                   )
+                }
+                Divider()
+                Button("Theres a wall there") {
+                    showingAlert3 = true
+                }
+                .font(.title)
+                .frame(maxWidth: .infinity)
+                .background(.red)
+                
+                .alert(isPresented:$showingAlert3) {
+                    Alert(
+                        title: Text("die for the first time")
+        
+                   )
+                }
+                Divider()
+                
+                
+                Button("Where did the board go") {
+                    showingAlert4 = true
+                }
+                .font(.title)
+                .frame(maxWidth: .infinity)
+                .background(.red)
+                
+                .alert(isPresented:$showingAlert4) {
+                    Alert(
+                        title: Text("get so big you cover the board")
+                    
+        
+                   )
+                }
             }
         }
         .accentColor(Color.black)
