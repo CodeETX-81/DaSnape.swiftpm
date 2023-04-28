@@ -5,8 +5,9 @@ struct ContentView: View {
         VStack{
             NavigationView {
                 VStack{
+                    Image("snake")
                     NavigationLink {
-                        Intro()
+                        GamePlay(SnakeDirection: .up)
                     } label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 15)
@@ -38,7 +39,7 @@ struct ContentView: View {
                             Text("Settings")
                                 .foregroundColor(.black)
                                 .font(Font.custom(
-                                    "Times New Roman", size: 79))
+                                    "Times New Roman", size: 49))
                         }
                     }
                 }
