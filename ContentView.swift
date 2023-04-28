@@ -2,11 +2,47 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack{
+            NavigationView {
+                VStack{
+                    NavigationLink {
+                        Intro()
+                    } label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15)
+                                .frame(width: 300, height: 100)
+                            Text("Play")
+                                .foregroundColor(.black)
+                                .font(Font.custom(
+                                    "Times New Roman", size: 79))
+                        }
+                    }
+                    NavigationLink {
+                        Achievements()
+                    } label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15)
+                                .frame(width: 300, height: 100)
+                            Text("Acheievement")
+                                .foregroundColor(.black)
+                                .font(Font.custom(
+                                    "Times New Roman", size: 49))
+                        }
+                    }
+                    NavigationLink {
+                        Settings()
+                    } label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15)
+                                .frame(width: 300, height: 100)
+                            Text("Settings")
+                                .foregroundColor(.black)
+                                .font(Font.custom(
+                                    "Times New Roman", size: 79))
+                        }
+                    }
+                }
+            }
         }
     }
 }

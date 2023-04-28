@@ -16,28 +16,30 @@ struct GamePlay: View {
     @State var SnakeLeft = false
     
     var body: some View {
-        Button {
-            SnakeUp.toggle()
-        } label: {
-            Image(systemName: "arrowtriangle.up.square.fill")
+        HStack {
+            Button {
+                SnakeUp.toggle()
+            } label: {
+                Image(systemName: "arrowtriangle.up.square.fill")
+            }
+            Button {
+                SnakeDown.toggle()
+            } label: {
+                Image(systemName: "arrowtriangle.down.square.fill")
+            }
+            Button {
+                SnakeLeft.toggle()
+            } label: {
+                Image(systemName: "arrowtriangle.backward.square.fill")
+            }
+            Button {
+                SnakeRight.toggle()
+            } label: {
+                Image(systemName: "arrowtriangle.forward.square.fill")
+            }
         }
-        Button {
-            SnakeDown.toggle()
-        } label: {
-            Image(systemName: "arrowtriangle.down.square.fill")
-        }
-        Button {
-            SnakeRight.toggle()
-        } label: {
-            Image(systemName: "arrowtriangle.forward.square.fill")
-        }
-        Button {
-            SnakeLeft.toggle()
-        } label: {
-            Image(systemName: "arrowtriangle.backward.square.fill")
-        }
-
-
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.cyan)
     }
 }
 
