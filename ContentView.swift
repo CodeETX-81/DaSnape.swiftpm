@@ -7,7 +7,7 @@ struct ContentView: View {
                 VStack{
                     Image("snake")
                     NavigationLink {
-                        GamePlay()
+                        GamePlay(SnakeDirection: .up)
                     } label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 15)
