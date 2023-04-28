@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct Achievements: View {
-    @State private var showingAlert = false
+    @State var showingAlert1 = false
+    @State var showingAlert2 = false
+    @State var showingAlert3 = false
+    @State var showingAlert4 = false
     var body: some View {
         ZStack {
             Color.green.ignoresSafeArea() // 1
             VStack {
                 Button("You actually got the game?!") {
-                    showingAlert = true
+                    showingAlert1 = true
                 }
                 .font(.title)
                 .frame(maxWidth: .infinity)
                 .background(.red)
                 
-                .alert(isPresented:$showingAlert) {
+                .alert(isPresented:$showingAlert1) {
                     Alert(
                         title: Text("Open the game for the first time")
                         
@@ -29,26 +32,48 @@ struct Achievements: View {
                 }
                 Divider()
                 Button("So this is a grape") {
-                    showingAlert = true
+                    showingAlert2 = true
                 }
                 .font(.title)
                 .frame(maxWidth: .infinity)
                 .background(.red)
+                
+                .alert(isPresented:$showingAlert2) {
+                    Alert(
+                        title: Text("Eat your first grape")
+        
+                   )
+                }
+                Divider()
+                Button("Theres a wall there") {
+                    showingAlert3 = true
+                }
+                .font(.title)
+                .frame(maxWidth: .infinity)
+                .background(.red)
+                
+                .alert(isPresented:$showingAlert3) {
+                    Alert(
+                        title: Text("die for the first time")
+        
+                   )
+                }
                 Divider()
                 
-                Group{
-                    Text("There was a wall there")
-                        .font(.title)
-                        .frame(maxWidth: .infinity)
-                        .background(.red)
-                    Divider()
+                
+                Button("Where did the board go") {
+                    showingAlert4 = true
                 }
-                Group{
-                    Text("Where did the board go?")
-                        .font(.title)
-                        .frame(maxWidth: .infinity)
-                        .background(.red)
-                    Divider()
+                .font(.title)
+                .frame(maxWidth: .infinity)
+                .background(.red)
+                
+                .alert(isPresented:$showingAlert4) {
+                    Alert(
+                        title: Text("get so big you cover the board")
+                    
+        
+                   )
                 }
             }
         }
