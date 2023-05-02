@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Settings: View {
+    @State var snakecolor:Color = .orange
+    
     var body: some View {
         Text("NDSBHIJDSBHUCVHSD")
     }
