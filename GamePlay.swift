@@ -21,7 +21,7 @@ struct GamePlay: View {
             Rectangle()
                 .frame(width: 10, height: 10)
                 .position(SnakeHead)
-                .foregroundColor(.red)
+                .foregroundColor(.green)
             HStack {
                 Button {
                     SnakeDirection = .up
