@@ -1,10 +1,3 @@
-//
-//  GamePlay.swift
-//  DaSnape
-//
-//  Created by Nazar Kochylo on 4/24/23.
-//
-
 import SwiftUI
 
 struct GamePlay: View {
@@ -21,7 +14,7 @@ struct GamePlay: View {
             Rectangle()
                 .frame(width: 10, height: 10)
                 .position(SnakeHead)
-                .foregroundColor(.green)
+                .foregroundColor(.red)
             HStack {
                 Button {
                     SnakeDirection = .up
