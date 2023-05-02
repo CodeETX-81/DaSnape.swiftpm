@@ -11,10 +11,6 @@ struct Settings: View {
     @State var snakecolor:Color = .orange
     
     var body: some View {
-       
-        Button("Green"){
-            snakecolor = .green
-                        }
-        
+        Text("NDSBHIJDSBHUCVHSD")
     }
 }
