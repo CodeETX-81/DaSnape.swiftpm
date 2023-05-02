@@ -1,14 +1,14 @@
 //
-//  Setting.swift
+//  Completed.swift
 //  DaSnape
 //
-//  Created by Bohdan kondratrenko on 4/24/23.
+//  Created by Nate Howard on 5/2/23.
 //
-
 import SwiftUI
 
-struct Settings: View {
+struct Completed: View {
     var body: some View {
         Text("NDSBHIJDSBHUCVHSD")
     }
 }
+

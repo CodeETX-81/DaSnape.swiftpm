@@ -13,9 +13,21 @@ struct Achievements: View {
     @State var showingAlert3 = false
     @State var showingAlert4 = false
     var body: some View {
-        ZStack {
-            Color.green.ignoresSafeArea() // 1
-            VStack {
+        VStack{
+            NavigationLink {
+                Completed()
+            } label: {
+                ZStack{
+                    Text("Completed Acheievements")
+                        .foregroundColor(.black)
+                        .position(x: 250, y: -23)
+                    
+                }
+                }
+                
+          
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                   .background(.green)
                 Button("You actually got the game?!") {
                     showingAlert1 = true
                 }
@@ -30,7 +42,9 @@ struct Achievements: View {
                         
                     )
                 }
+                
                 Divider()
+                
                 Button("So this is a grape") {
                     showingAlert2 = true
                 }
@@ -41,8 +55,8 @@ struct Achievements: View {
                 .alert(isPresented:$showingAlert2) {
                     Alert(
                         title: Text("Eat your first grape")
-        
-                   )
+                        
+                    )
                 }
                 Divider()
                 Button("Theres a wall there") {
@@ -54,9 +68,9 @@ struct Achievements: View {
                 
                 .alert(isPresented:$showingAlert3) {
                     Alert(
-                        title: Text("die for the first time")
-        
-                   )
+                        title: Text("Die for the first time")
+                        
+                    )
                 }
                 Divider()
                 
@@ -70,20 +84,20 @@ struct Achievements: View {
                 
                 .alert(isPresented:$showingAlert4) {
                     Alert(
-                        title: Text("get so big you cover the board")
-                    
-        
-                   )
+                        title: Text("Get so long you cover the board")
+                        
+                        
+                    )
                 }
+                
             }
+            .accentColor(Color.black)
         }
-        .accentColor(Color.black)
     }
-    
     
     struct Achievements_Previews: PreviewProvider {
         static var previews: some View {
             Achievements()
         }
     }
-}
+
