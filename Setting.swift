@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Settings: View {
     @State var snakecolor:Color = .orange
-    
+    @State var background:Color = .green
     var body: some View {
        
         Button("Green"){
@@ -35,6 +35,23 @@ struct Settings: View {
          Button("Black"){
              snakecolor = .black
                          }
+        Button("Green"){
+            background = .green
+                        }
+        
+         Button("Blue"){
+             background = .blue
+                         }
+        
+         Button("Red"){
+             background = .red
+                         }
+        
+         Button("Purple"){
+             background = .purple
+                         }
+        
+        
         
     }
 }
