@@ -23,11 +23,11 @@ struct Achievements: View {
                         .position(x: 250, y: -23)
                     
                 }
-                }
-                
-          
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                   .background(.green)
+            }
+            
+            
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.green)
                 Button("You actually got the game?!") {
                     showingAlert1 = true
                 }
@@ -94,6 +94,7 @@ struct Achievements: View {
             .accentColor(Color.black)
         }
     }
+
     
     struct Achievements_Previews: PreviewProvider {
         static var previews: some View {
