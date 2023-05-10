@@ -49,7 +49,7 @@ struct ContentView: View {
                                     .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
                                     .edgesIgnoringSafeArea(.all)
                             )
-            }
+            }.navigationViewStyle(.stack)
         }
     }
 }
