@@ -1,9 +1,10 @@
 import SwiftUI
 
 struct GamePlay: View {
-    @State var SnakeHead:CGPoint = (CGPoint(x: 100, y: 100))
     @State var SnakeDirection:SnakeDirections
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    @State var snakePositions: [CGPoint] = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
+    @State var foodPosition: CGPoint = CGPoint(x: 500, y: 500)
     enum SnakeDirections{
         case up
         case down
@@ -12,68 +13,73 @@ struct GamePlay: View {
     }
     var body: some View {
         VStack{
-            Rectangle()
-                .frame(width: 25, height: 25)
-                .position(SnakeHead)
-                .foregroundColor(.red)
+            ZStack {
+                ForEach(0..<snakePositions.count, id:\.self) { index in
+                    Rectangle()
+                        .frame(width: 25, height: 25)
+                        .position(self.snakePositions[index])
+                        .foregroundColor(.red)
+                }
+                Rectangle()
+                    .frame(width: 25, height: 25)
+                    .foregroundColor(.red)
+                    .position(foodPosition)
+            }
+            .onReceive(timer) { time in
+                
+                updateSnakePosition()
+            }
             HStack {
                 Button {
                     SnakeDirection = .up
-                    UpdateSnakePosition()
                 } label: {
                     Image(systemName: "arrowtriangle.up.square.fill")
                 }
                 Button {
                     SnakeDirection = .down
-                    UpdateSnakePosition()
                 } label: {
                     Image(systemName: "arrowtriangle.down.square.fill")
                 }
                 Button {
                     SnakeDirection = .left
-                    UpdateSnakePosition()
                 } label: {
                     Image(systemName: "arrowtriangle.backward.square.fill")
                 }
                 Button {
                     SnakeDirection = .right
-                    UpdateSnakePosition()
                 } label: {
                     Image(systemName: "arrowtriangle.forward.square.fill")
                 }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        //.frame(width: 500, height: 750)
         .padding()
         .background(.cyan)
-        .onReceive(timer) { time in
-            UpdateSnakePosition()
-        }
     }
         
 
 
-    func UpdateSnakePosition() {
-        switch SnakeDirection{
-        case .up:do {
-            SnakeHead.y -= 25
-        }
-        case .down:do {
-            SnakeHead.y += 25
-
-        }
-        case .left:do {
-            SnakeHead.x -= 25
-
-        }
-        case .right:do {
-            SnakeHead.x += 25
-
-        }
-
+    func updateSnakePosition() {
+        var previousSnakePosition = snakePositions[0]
+            switch SnakeDirection{
+            case .up:
+                self.snakePositions[0].y -= 25
+            case .down: 
+                self.snakePositions[0].y += 25
+            case .left:
+                self.snakePositions[0].x -= 25
+            case .right: 
+                self.snakePositions[0].x += 25
+                
+                
+            }
+        for index in 1..<snakePositions.count{
+            let currentSnakePostion = snakePositions[index]
+            snakePositions[index] = previousSnakePosition
+            previousSnakePosition = currentSnakePostion
         }
     }
+
 }
 
 
