@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GamePlay: View {
+    //@Binding var snakecolor: Color
     @State var SnakeDirection:SnakeDirections
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     @State var snakePositions: [CGPoint] = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
@@ -73,13 +74,18 @@ struct GamePlay: View {
                 
                 
             }
-        for index in 1..<snakePositions.count{
+        for index in 0..<snakePositions.count{
             let currentSnakePostion = snakePositions[index]
             snakePositions[index] = previousSnakePosition
             previousSnakePosition = currentSnakePostion
         }
     }
-
+    //    func updateSnakeSize(){
+    //        if self.snakePositions[0] == self.foodPosition{
+    //            self.snakePositions.append(self.snakePositions[0])
+    //            print(snakePositions)
+    //        }
+       // }
 }
 
 
