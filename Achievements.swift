@@ -13,21 +13,16 @@ struct Achievements: View {
     @State var showingAlert3 = false
     @State var showingAlert4 = false
     var body: some View {
-        VStack{
-            NavigationLink {
-                Completed()
-            } label: {
-                ZStack{
-                    Text("Completed Acheievements")
-                        .foregroundColor(.black)
-                        .position(x: 250, y: -23)
-                    
-                }
-                }
-                
-          
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                   .background(.green)
+       
+        ZStack {
+            Color.green
+                .font(.largeTitle)
+        
+        .ignoresSafeArea() // 1
+            
+        
+        
+            VStack{
                 Button("You actually got the game?!") {
                     showingAlert1 = true
                 }
@@ -85,15 +80,21 @@ struct Achievements: View {
                 .alert(isPresented:$showingAlert4) {
                     Alert(
                         title: Text("Get so long you cover the board")
-                        
-                        
                     )
+                    
                 }
-                
+                Divider()
+                Divider()
+                Divider()
+              
             }
-            .accentColor(Color.black)
         }
+        
+        
+        .accentColor(Color.black)
     }
+    
+}
     
     struct Achievements_Previews: PreviewProvider {
         static var previews: some View {
