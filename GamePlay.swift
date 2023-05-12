@@ -16,6 +16,11 @@ struct GamePlay: View {
     var body: some View {
         VStack{
             ZStack {
+                
+              
+                                    
+                
+                
                 ForEach(0..<snakePositions.count, id:\.self) { index in
                     Rectangle()
                         .frame(width: 25, height: 25)
@@ -56,7 +61,7 @@ struct GamePlay: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
-        .background(.cyan)
+        Image("green-checkerboard")
     }
         
 
