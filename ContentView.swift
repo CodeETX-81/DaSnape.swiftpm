@@ -43,12 +43,6 @@ struct ContentView: View {
                         }
                     }
                 }
-                .background(Snake()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .aspectRatio(contentMode: .fill)
-                                    .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-                                    .edgesIgnoringSafeArea(.all)
-                            )
             }.navigationViewStyle(.stack)
         }
     }
