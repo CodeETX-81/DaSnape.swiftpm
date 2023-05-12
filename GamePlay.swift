@@ -1,12 +1,13 @@
 import SwiftUI
 
 struct GamePlay: View {
-    //@Binding var snakecolor: Color
     @State var SnakeDirection:SnakeDirections
+    var screenWidth = UIScreen.main.bounds.width
+    var screenHeight = UIScreen.main.bounds.height
     @Binding var SnakeColor:Color 
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     @State var snakePositions: [CGPoint] = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
-    @State var foodPosition: CGPoint = CGPoint(x: 500, y: 500)
+    @State var foodPosition: CGPoint = CGPoint(x: 200, y: 200)
     enum SnakeDirections{
         case up
         case down
@@ -25,7 +26,7 @@ struct GamePlay: View {
                     Rectangle()
                         .frame(width: 25, height: 25)
                         .position(self.snakePositions[index])
-                        .foregroundColor(.red)
+                        .foregroundColor(SnakeColor)
                 }
                 Rectangle()
                     .frame(width: 25, height: 25)
@@ -33,12 +34,13 @@ struct GamePlay: View {
                     .position(foodPosition)
             }
             .onReceive(timer) { time in
-                
+                updateSnakeSize()
                 updateSnakePosition()
             }
             HStack {
                 Button {
                     SnakeDirection = .up
+                    updateSnakeSize()
                 } label: {
                     Image(systemName: "arrowtriangle.up.square.fill")
                 }
@@ -80,17 +82,21 @@ struct GamePlay: View {
                 
                 
             }
-        for index in 0..<snakePositions.count{
+        for index in 1..<snakePositions.count{
             let currentSnakePostion = snakePositions[index]
             snakePositions[index] = previousSnakePosition
             previousSnakePosition = currentSnakePostion
         }
     }
-    //    func updateSnakeSize(){
-    //        if self.snakePositions[0] == self.foodPosition{
-    //            self.snakePositions.append(self.snakePositions[0])
-    //            print(snakePositions)
-    //        }
-       // }
+        func updateSnakeSize(){
+            if self.snakePositions[0] == self.foodPosition{
+                self.snakePositions.append(self.snakePositions[0])
+                var randomX = Int(Int.random(in: 0...Int(screenWidth))/10) * 10
+                print(randomX)
+                var randomY = Int(Int.random(in: 0...Int(screenHeight))/10) * 10
+                print(randomY)
+                foodPosition = CGPoint(x: randomX, y: randomY)
+            }
+        }
 }
 
