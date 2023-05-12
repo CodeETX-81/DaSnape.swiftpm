@@ -1,13 +1,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var SnakeColor:Color = Color.orange
     var body: some View {
         ZStack{
             NavigationView {
                 VStack{
                     Image("snake")
                     NavigationLink {
-                        GamePlay(SnakeDirection: .up)
+                        GamePlay(SnakeDirection: .up, SnakeColor: $SnakeColor)
                     } label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 15)
@@ -31,7 +32,7 @@ struct ContentView: View {
                         }
                     }
                     NavigationLink {
-                        Settings()
+                        Settings(SnakeColor: $SnakeColor)
                     } label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 15)
@@ -43,12 +44,12 @@ struct ContentView: View {
                         }
                     }
                 }
-                .background(Snake()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .aspectRatio(contentMode: .fill)
-                                    .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-                                    .edgesIgnoringSafeArea(.all)
-                            )
+//                .background(Snake()
+//                .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                .aspectRatio(contentMode: .fill)
+//                                    .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+//                                    .edgesIgnoringSafeArea(.all)
+//                            )
             }
         }
     }

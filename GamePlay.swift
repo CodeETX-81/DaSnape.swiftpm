@@ -3,6 +3,7 @@ import SwiftUI
 struct GamePlay: View {
     @State var SnakeHead:CGPoint = (CGPoint(x: 100, y: 100))
     @State var SnakeDirection:SnakeDirections
+    @Binding var SnakeColor:Color 
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     enum SnakeDirections{
         case up
@@ -15,7 +16,7 @@ struct GamePlay: View {
             Rectangle()
                 .frame(width: 25, height: 25)
                 .position(SnakeHead)
-                .foregroundColor(.red)
+                .foregroundColor(SnakeColor)
             HStack {
                 Button {
                     SnakeDirection = .up
@@ -76,10 +77,3 @@ struct GamePlay: View {
     }
 }
 
-
-
-struct GamePlay_Previews: PreviewProvider {
-    static var previews: some View {
-        GamePlay(SnakeDirection: .up)
-    }
-}
