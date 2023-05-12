@@ -61,9 +61,6 @@ struct GamePlay: View {
                 }
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding()
-        Image("green-checkerboard")
     }
         
 
@@ -91,9 +88,9 @@ struct GamePlay: View {
         func updateSnakeSize(){
             if self.snakePositions[0] == self.foodPosition{
                 self.snakePositions.append(self.snakePositions[0])
-                var randomX = Int(Int.random(in: 0...Int(screenWidth))/25) * 25
+                let randomX = Int(Int.random(in: 0...Int(screenWidth))/25) * 25
                 print(randomX)
-                var randomY = Int(Int.random(in: 0...Int(screenHeight))/25) * 25
+                let randomY = Int(Int.random(in: 0...Int(screenHeight))/25) * 25
                 print(randomY)
                 foodPosition = CGPoint(x: randomX, y: randomY)
             }
