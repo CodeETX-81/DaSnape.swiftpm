@@ -1,48 +1,41 @@
 import SwiftUI
 
 struct Settings: View {
-    @State var snakecolor:Color = .orange
-    @State var background:Color = .green
+    @Binding var SnakeColor:Color 
+    @State var background:Color = Color.orange
     var body: some View {
        
         Button("Green"){
-            snakecolor = .green
+            SnakeColor = .green
                         }
-        
          Button("Blue"){
-             snakecolor = .blue
+             SnakeColor = .blue
                          }
-        
          Button("Red"){
-             snakecolor = .red
+             SnakeColor = .red
                          }
-        
          Button("Purple"){
-             snakecolor = .purple
+             SnakeColor = .purple
                          }
-        
          Button("White"){
-             snakecolor = .white
+             SnakeColor = .white
                          }
-        
          Button("Black"){
-             snakecolor = .black
+             SnakeColor = .black
                          }
         Button("Green"){
             background = .green
                         }
-        
          Button("Blue"){
              background = .blue
                          }
-        
          Button("Red"){
              background = .red
                          }
-        
          Button("Purple"){
              background = .purple
                          }
+                               
         
         
         
