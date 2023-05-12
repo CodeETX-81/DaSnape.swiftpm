@@ -3,6 +3,7 @@ import SwiftUI
 struct GamePlay: View {
     //@Binding var snakecolor: Color
     @State var SnakeDirection:SnakeDirections
+    @Binding var SnakeColor:Color 
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     @State var snakePositions: [CGPoint] = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
     @State var foodPosition: CGPoint = CGPoint(x: 500, y: 500)
@@ -88,10 +89,3 @@ struct GamePlay: View {
        // }
 }
 
-
-
-struct GamePlay_Previews: PreviewProvider {
-    static var previews: some View {
-        GamePlay(SnakeDirection: .up)
-    }
-}
