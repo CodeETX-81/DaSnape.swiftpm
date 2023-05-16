@@ -17,7 +17,10 @@ struct GamePlay: View {
     var body: some View {
         VStack{
             ZStack {
-                
+                Image("download")
+                    .resizable()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding()
               
                                     
                 
@@ -61,9 +64,6 @@ struct GamePlay: View {
                 }
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding()
-        Image("green-checkerboard")
     }
         
 
