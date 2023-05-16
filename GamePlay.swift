@@ -6,7 +6,7 @@ struct GamePlay: View {
     var screenHeight = UIScreen.main.bounds.height
     @State var gameOver = false
     @Binding var SnakeColor:Color
-    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 0.7, on: .main, in: .common).autoconnect()
     @State var snakePositions: [CGPoint] = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
     @State var foodPosition: CGPoint = CGPoint(x: 200, y: 200)
     enum SnakeDirections{
