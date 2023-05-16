@@ -37,28 +37,32 @@ struct GamePlay: View {
                 updateSnakeSize()
                 updateSnakePosition()
             }
-            HStack {
+        ZStack {
                 Button {
                     SnakeDirection = .up
                     updateSnakeSize()
                 } label: {
                     Image(systemName: "arrowtriangle.up.square.fill")
                 }.scaleEffect(4.5)
+                .offset(y: -70)
                 Button {
                     SnakeDirection = .down
                 } label: {
                     Image(systemName: "arrowtriangle.down.square.fill")
                 }.scaleEffect(4.5)
+                    .offset()
                 Button {
                     SnakeDirection = .left
                 } label: {
                     Image(systemName: "arrowtriangle.backward.square.fill")
                 }.scaleEffect(4.5)
+                .offset(x: -70)
                 Button {
                     SnakeDirection = .right
                 } label: {
                     Image(systemName: "arrowtriangle.forward.square.fill")
                 }.scaleEffect(4.5)
+                .offset(x: 70)
             }
         }
     }
