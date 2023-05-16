@@ -4,6 +4,8 @@ struct GamePlay: View {
     @State var SnakeDirection:SnakeDirections
     var screenWidth = UIScreen.main.bounds.width
     var screenHeight = UIScreen.main.bounds.height
+    @State var gameOver = false
+
     @Binding var SnakeColor:Color 
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     @State var snakePositions: [CGPoint] = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
@@ -22,7 +24,7 @@ struct GamePlay: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding()
               
-                                    
+                   
                 
                 
                 ForEach(0..<snakePositions.count, id:\.self) { index in
@@ -63,6 +65,8 @@ struct GamePlay: View {
                     Image(systemName: "arrowtriangle.forward.square.fill")
                 }.scaleEffect(4.5)
             }
+        }  .alert(isPresented: $gameOver) {
+            Alert(title: Text("Hello SwiftUI!"), message: Text("This is some detail message"), dismissButton: .default(Text("OK")))
         }
     }
         
