@@ -43,22 +43,22 @@ struct GamePlay: View {
                     updateSnakeSize()
                 } label: {
                     Image(systemName: "arrowtriangle.up.square.fill")
-                }
+                }.scaleEffect(4.5)
                 Button {
                     SnakeDirection = .down
                 } label: {
                     Image(systemName: "arrowtriangle.down.square.fill")
-                }
+                }.scaleEffect(4.5)
                 Button {
                     SnakeDirection = .left
                 } label: {
                     Image(systemName: "arrowtriangle.backward.square.fill")
-                }
+                }.scaleEffect(4.5)
                 Button {
                     SnakeDirection = .right
                 } label: {
                     Image(systemName: "arrowtriangle.forward.square.fill")
-                }
+                }.scaleEffect(4.5)
             }
         }
     }
@@ -88,9 +88,9 @@ struct GamePlay: View {
         func updateSnakeSize(){
             if self.snakePositions[0] == self.foodPosition{
                 self.snakePositions.append(self.snakePositions[0])
-                let randomX = Int(Int.random(in: 0...Int(screenWidth))/25) * 25
+                let randomX = Int(Int.random(in: 0...Int(screenWidth-25))/25) * 25
                 print(randomX)
-                let randomY = Int(Int.random(in: 0...Int(screenHeight))/25) * 25
+                let randomY = Int(Int.random(in: 0...Int(screenHeight-25))/25) * 25
                 print(randomY)
                 foodPosition = CGPoint(x: randomX, y: randomY)
             }
