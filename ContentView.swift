@@ -25,7 +25,7 @@ struct ContentView: View {
                         ZStack{
                             RoundedRectangle(cornerRadius: 15)
                                 .frame(width: 300, height: 100)
-                            Text("Acheievement")
+                            Text("Achievement")
                                 .foregroundColor(.black)
                                 .font(Font.custom(
                                     "Times New Roman", size: 49))
