@@ -43,7 +43,7 @@ struct ContentView: View {
                                     "Times New Roman", size: 49))
                         }
                     }
-                }.scaleEffect(2)
+                }.scaleEffect(1.7)
             }.navigationViewStyle(.stack)
                 .padding()
         }
