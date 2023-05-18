@@ -61,8 +61,9 @@ struct GamePlay: View {
                     Image(systemName: "arrowtriangle.forward.square.fill")
                 }//.scaleEffect(4.5)
             }
-        }  .alert(isPresented: $gameOver) {
-            Alert(title: Text("Hello SwiftUI!"), message: Text("This is some detail message"), dismissButton: .default(Text("OK")))
+        }
+        .alert("You Died", isPresented: $gameOver){
+            Button("play again", role: .cancel){gameOver = false}
         }
     }
     
