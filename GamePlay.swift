@@ -80,8 +80,6 @@ struct GamePlay: View {
         }  .alert(isPresented: $gameOver) {
             Alert(title: Text("Hello SwiftUI!"), message: Text("This is some detail message"), dismissButton: .default(Text("Restart"), action: {
             snakePositions = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
-//                self.timer.upstream.connect().cancel()
-//                self.timer.upstream.connect()
             }))
         }
     }
