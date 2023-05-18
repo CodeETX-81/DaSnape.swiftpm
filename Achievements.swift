@@ -45,7 +45,7 @@ struct Achievements: View {
                 }
                 .font(.title)
                 .frame(maxWidth: .infinity)
-                .background(.green)
+                .background(.orange)
                 
                 .alert(isPresented:$showingAlert2) {
                     Alert(
@@ -59,7 +59,7 @@ struct Achievements: View {
                 }
                 .font(.title)
                 .frame(maxWidth: .infinity)
-                .background(.green)
+                .background(.orange)
                 
                 .alert(isPresented:$showingAlert3) {
                     Alert(
@@ -75,7 +75,7 @@ struct Achievements: View {
                 }
                 .font(.title)
                 .frame(maxWidth: .infinity)
-                .background(.green)
+                .background(.orange)
                 
                 .alert(isPresented:$showingAlert4) {
                     Alert(
