@@ -6,7 +6,7 @@ struct GamePlay: View {
     var screenHeight = UIScreen.main.bounds.height
     @State var gameOver = false
     @Binding var SnakeColor:Color
-    let timer = Timer.publish(every: 0.7, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
     @State var snakePositions: [CGPoint] = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
     @State var foodPosition: CGPoint = CGPoint(x: 200, y: 200)
     enum SnakeDirections{
@@ -48,8 +48,8 @@ struct GamePlay: View {
                     else {}
                 } label: {
                     Image(systemName: "arrowtriangle.up.square.fill")
-                }.scaleEffect(4.5)
-                .offset(y: -70)
+                }.scaleEffect(9)
+                .offset(y: -230)
                 .opacity(0.7)
                 Button {
                     if SnakeDirection != .up{
@@ -57,8 +57,8 @@ struct GamePlay: View {
                     else {}
                 } label: {
                     Image(systemName: "arrowtriangle.down.square.fill")
-                }.scaleEffect(4.5)
-                    .offset()
+                }.scaleEffect(9)
+                .offset(y: -80)
                     .opacity(0.7)
                 Button {
                     if SnakeDirection != .right{
@@ -66,8 +66,8 @@ struct GamePlay: View {
                     else {}
                 } label: {
                     Image(systemName: "arrowtriangle.backward.square.fill")
-                }.scaleEffect(4.5)
-                .offset(x: -70)
+                }.scaleEffect(9)
+                .offset(x: -150, y: -80)
                 .opacity(0.7)
                 Button {
                     if SnakeDirection != .left{
@@ -75,8 +75,8 @@ struct GamePlay: View {
                     else {}
                 } label: {
                     Image(systemName: "arrowtriangle.forward.square.fill")
-                }.scaleEffect(4.5)
-                .offset(x: 70)
+                }.scaleEffect(9)
+                .offset(x: 150, y:-80)
                 .opacity(0.7)
             }
         }  .alert(isPresented: $gameOver) {
