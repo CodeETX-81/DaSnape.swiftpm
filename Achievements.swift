@@ -15,7 +15,7 @@ struct Achievements: View {
     var body: some View {
        
         ZStack {
-            Color.green
+            Color.orange
                 .font(.largeTitle)
         
         .ignoresSafeArea() // 1
@@ -28,7 +28,7 @@ struct Achievements: View {
                 }
                 .font(.title)
                 .frame(maxWidth: .infinity)
-                .background(.red)
+                .background(.green)
                 
                 .alert(isPresented:$showingAlert1) {
                     Alert(
@@ -45,7 +45,7 @@ struct Achievements: View {
                 }
                 .font(.title)
                 .frame(maxWidth: .infinity)
-                .background(.red)
+                .background(.green)
                 
                 .alert(isPresented:$showingAlert2) {
                     Alert(
@@ -59,7 +59,7 @@ struct Achievements: View {
                 }
                 .font(.title)
                 .frame(maxWidth: .infinity)
-                .background(.red)
+                .background(.green)
                 
                 .alert(isPresented:$showingAlert3) {
                     Alert(
@@ -67,15 +67,15 @@ struct Achievements: View {
                         
                     )
                 }
+               
                 Divider()
-                
                 
                 Button("Where did the board go") {
                     showingAlert4 = true
                 }
                 .font(.title)
                 .frame(maxWidth: .infinity)
-                .background(.red)
+                .background(.green)
                 
                 .alert(isPresented:$showingAlert4) {
                     Alert(
@@ -83,9 +83,7 @@ struct Achievements: View {
                     )
                     
                 }
-                Divider()
-                Divider()
-                Divider()
+           
               
             }
         }
