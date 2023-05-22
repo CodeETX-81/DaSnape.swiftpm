@@ -28,7 +28,7 @@ struct Achievements: View {
                 }
                 .font(.title)
                 .frame(maxWidth: .infinity)
-                .background(.green)
+                .background(.orange)
                 
                 .alert(isPresented:$showingAlert1) {
                     Alert(
