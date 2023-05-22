@@ -80,10 +80,12 @@ struct GamePlay: View {
                 .opacity(0.7)
             }
         }  .alert(isPresented: $gameOver) {
-            Alert(title: Text("Hello SwiftUI!"), message: Text("This is some detail message"), dismissButton: .default(Text("Restart"), action: {
+            Alert(title: Text("You Died"), message: Text(" you hit the wall"), dismissButton: .default(Text("Restart"), action: {
             snakePositions = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
             }))
         }
+        .frame(width: 750, height: 1050)
+        //.border(.black)
     }
     
     
@@ -92,7 +94,7 @@ struct GamePlay: View {
         var previousSnakePosition = snakePositions[0]
         switch SnakeDirection{
         case .up:
-            self.snakePositions[0].y -= 25
+        self.snakePositions[0].y -= 25
         case .down:
             self.snakePositions[0].y += 25
         case .left:
