@@ -86,7 +86,7 @@ struct GamePlay: View {
         }
         .frame(width: 820, height: 1100)
         .border(.black)
-        .navigationTitle("")
+        .navigationBarTitle("")
         .navigationBarHidden(true)
     }
     
