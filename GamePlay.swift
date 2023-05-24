@@ -84,8 +84,10 @@ struct GamePlay: View {
             snakePositions = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
             }))
         }
-        .frame(width: 750, height: 1050)
-        //.border(.black)
+        .frame(width: 820, height: 1100)
+        .border(.black)
+        .navigationTitle("")
+        .navigationBarHidden(true)
     }
     
     
@@ -107,7 +109,7 @@ struct GamePlay: View {
             snakePositions[index] = previousSnakePosition
             previousSnakePosition = currentSnakePostion
         }
-        if snakePositions[0].x >= screenWidth || snakePositions[0].x <= 0  || snakePositions[0].y >= screenHeight-50 || snakePositions[0].y <= 0-50 {
+        if snakePositions[0].x >= screenWidth || snakePositions[0].x <= 0  || snakePositions[0].y >= screenHeight-50 || snakePositions[0].y <= 0 {
             gameOver = true
             print(gameOver)
         }
