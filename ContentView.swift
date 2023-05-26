@@ -45,7 +45,7 @@ struct ContentView: View {
                     }
                 }.scaleEffect(1.7)
             }.navigationViewStyle(.stack)
-                .padding()
+//                .padding()
         }
     }
 }

@@ -84,10 +84,13 @@ struct GamePlay: View {
             snakePositions = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
             }))
         }
-        .frame(width: 820, height: 1100)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
 //        .border(.black)
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
+//        .navigationBarTitle("")
+//        .navigationBarHidden(true)
+        .background(.blue)
+        .ignoresSafeArea()
+//        .background(ignoresSafeAreaEdges: .all)
     }
     
     
