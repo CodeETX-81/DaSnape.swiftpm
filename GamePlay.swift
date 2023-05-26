@@ -21,7 +21,13 @@ struct GamePlay: View {
                 
                 
                 
-                
+                Button {
+                    print("button")
+                } label: {
+                    Text("Pause")
+                }
+                .offset(CGSize(width: 500, height: 500))
+
                 
                 ForEach(0..<snakePositions.count, id:\.self) { index in
                     Rectangle()
@@ -85,6 +91,7 @@ struct GamePlay: View {
             }))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.blue)
 //        .border(.black)
 //        .navigationBarTitle("")
 //        .navigationBarHidden(true)
@@ -112,7 +119,7 @@ struct GamePlay: View {
             snakePositions[index] = previousSnakePosition
             previousSnakePosition = currentSnakePostion
         }
-        if snakePositions[0].x >= screenWidth || snakePositions[0].x <= 0  || snakePositions[0].y >= screenHeight-50 || snakePositions[0].y <= 0 {
+        if snakePositions[0].x >= screenWidth || snakePositions[0].x <= 0  || snakePositions[0].y >= screenHeight || snakePositions[0].y <= 0 {
             gameOver = true
             print(gameOver)
         }
