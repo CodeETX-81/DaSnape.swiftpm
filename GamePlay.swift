@@ -92,12 +92,6 @@ struct GamePlay: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.blue)
-//        .border(.black)
-//        .navigationBarTitle("")
-//        .navigationBarHidden(true)
-        .background(.blue)
-        .ignoresSafeArea()
-//        .background(ignoresSafeAreaEdges: .all)
     }
     
     
