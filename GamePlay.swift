@@ -4,6 +4,7 @@ struct GamePlay: View {
     @State var SnakeDirection:SnakeDirections
     var screenWidth = UIScreen.main.bounds.width
     var screenHeight = UIScreen.main.bounds.height
+    @State var paused = false
     @State var gameOver = false
     @Binding var SnakeColor:Color
     let timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
@@ -18,17 +19,6 @@ struct GamePlay: View {
     var body: some View {
         VStack{
             ZStack {
-                
-                
-                
-                Button {
-                    print("button")
-                } label: {
-                    Text("Pause")
-                }
-                .offset(CGSize(width: 500, height: 500))
-
-                
                 ForEach(0..<snakePositions.count, id:\.self) { index in
                     Rectangle()
                         .frame(width: 25, height: 25)
@@ -46,7 +36,16 @@ struct GamePlay: View {
                 print(screenWidth)
                 print(screenHeight)
             }
-        ZStack {
+            ZStack {
+                Button {
+                    timer.upstream.connect().cancel()
+                } label: {
+                    if paused == false {
+                        Text("Pause")
+                            .foregroundColor(.red)
+                    }
+                }
+                .offset(x: 500, y: 500)
                 Button {
                     if SnakeDirection != .down{
                         SnakeDirection = .up
@@ -55,8 +54,8 @@ struct GamePlay: View {
                 } label: {
                     Image(systemName: "arrowtriangle.up.square.fill")
                 }.scaleEffect(9)
-                .offset(y: -230)
-                .opacity(0.7)
+                    .offset(y: -230)
+                    .opacity(0.7)
                 Button {
                     if SnakeDirection != .up{
                         SnakeDirection = .down}
@@ -64,7 +63,7 @@ struct GamePlay: View {
                 } label: {
                     Image(systemName: "arrowtriangle.down.square.fill")
                 }.scaleEffect(9)
-                .offset(y: -80)
+                    .offset(y: -80)
                     .opacity(0.7)
                 Button {
                     if SnakeDirection != .right{
@@ -73,8 +72,8 @@ struct GamePlay: View {
                 } label: {
                     Image(systemName: "arrowtriangle.backward.square.fill")
                 }.scaleEffect(9)
-                .offset(x: -150, y: -80)
-                .opacity(0.7)
+                    .offset(x: -150, y: -80)
+                    .opacity(0.7)
                 Button {
                     if SnakeDirection != .left{
                         SnakeDirection = .right}
@@ -82,22 +81,17 @@ struct GamePlay: View {
                 } label: {
                     Image(systemName: "arrowtriangle.forward.square.fill")
                 }.scaleEffect(9)
-                .offset(x: 150, y:-80)
-                .opacity(0.7)
+                    .offset(x: 150, y:-80)
+                    .opacity(0.7)
             }
         }  .alert(isPresented: $gameOver) {
             Alert(title: Text("You Died"), message: Text(" you hit the wall"), dismissButton: .default(Text("Restart"), action: {
-            snakePositions = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
+                snakePositions = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
             }))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.blue)
-//        .border(.black)
-//        .navigationBarTitle("")
-//        .navigationBarHidden(true)
-        .background(.blue)
         .ignoresSafeArea()
-//        .background(ignoresSafeAreaEdges: .all)
     }
     
     
@@ -106,7 +100,7 @@ struct GamePlay: View {
         var previousSnakePosition = snakePositions[0]
         switch SnakeDirection{
         case .up:
-        self.snakePositions[0].y -= 25
+            self.snakePositions[0].y -= 25
         case .down:
             self.snakePositions[0].y += 25
         case .left:
