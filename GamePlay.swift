@@ -99,14 +99,17 @@ struct GamePlay: View {
                     
                     if paused == false {
                         Text("Pause")
+                            .background(.orange)
+                            .frame(width: 100, height: 100)
                             
                     }
                     
                     else if paused == true {
                         Text("Play")
+                            .background(.orange)
                     }
                 }
-                .foregroundColor(.orange)
+                .foregroundColor(.white)
             }
             
         }
