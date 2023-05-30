@@ -7,7 +7,7 @@ struct GamePlay: View {
     @State var paused = false
     @State var gameOver = false
     @Binding var SnakeColor:Color
-    let timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
+    @State var timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
     @State var snakePositions: [CGPoint] = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
     @State var foodPosition: CGPoint = CGPoint(x: 200, y: 200)
     enum SnakeDirections{
@@ -37,15 +37,6 @@ struct GamePlay: View {
                 print(screenHeight)
             }
             ZStack {
-                Button {
-                    timer.upstream.connect().cancel()
-                } label: {
-                    if paused == false {
-                        Text("Pause")
-                            .foregroundColor(.red)
-                    }
-                }
-                .offset(x: 500, y: 500)
                 Button {
                     if SnakeDirection != .down{
                         SnakeDirection = .up
@@ -92,6 +83,34 @@ struct GamePlay: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.blue)
         .ignoresSafeArea()
+        .toolbar {
+            ToolbarItem {
+                Button {
+                    if paused == false {
+                        timer.upstream.connect().cancel()
+                    }
+                    
+                    else if paused == true {
+                        timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
+                    }
+                    paused.toggle()
+                    
+                
+                } label: {
+                    
+                    if paused == false {
+                        Text("Pause")
+                            
+                    }
+                    
+                    else if paused == true {
+                        Text("Play")
+                    }
+                }
+                .foregroundColor(.orange)
+            }
+            
+        }
     }
     
     
@@ -121,9 +140,9 @@ struct GamePlay: View {
     func updateSnakeSize(){
         if self.snakePositions[0] == self.foodPosition{
             self.snakePositions.append(self.snakePositions[0])
-            let randomX = Int(Int.random(in: 0...Int(screenWidth-25))/25) * 25
+            let randomX = Int(Int.random(in: 0...Int(screenWidth))/25) * 25
             print(randomX)
-            let randomY = Int(Int.random(in: 0...Int(screenHeight-25))/25) * 25
+            let randomY = Int(Int.random(in: 0...Int(screenHeight))/25) * 25
             print(randomY)
             foodPosition = CGPoint(x: randomX, y: randomY)
         }
