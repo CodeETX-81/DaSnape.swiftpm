@@ -1,10 +1,3 @@
-//
-//  Achievements.swift
-//  DaSnape
-//
-//  Created by Nazar Kochylo on 4/24/23.
-//
-
 import SwiftUI
 
 struct Achievements: View {
