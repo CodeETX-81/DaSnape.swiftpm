@@ -99,9 +99,10 @@ struct GamePlay: View {
                     
                     if paused == false {
                         Text("Pause")
+                            .frame(width: 420, height: 39)
                             .background(.orange)
-                            .frame(width: 100, height: 100)
-                            
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+
                     }
                     
                     else if paused == true {
