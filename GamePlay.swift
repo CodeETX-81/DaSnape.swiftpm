@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GamePlay: View {
+    @Environment(\.dismiss) private var dismiss
     @State var SnakeDirection:SnakeDirections
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
@@ -82,10 +83,21 @@ struct GamePlay: View {
                 paused = false
             }))
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.blue)
         .ignoresSafeArea()
+        .navigationBarBackButtonHidden()
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Back")
+                        .foregroundColor(.white)
+                        .frame(width: 100, height: 39)
+                        .background(.orange)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                }
+            }
             ToolbarItem {
                 Button {
                     if paused == false {
@@ -102,14 +114,20 @@ struct GamePlay: View {
                     
                     if paused == false {
                         Text("Pause")
-                        
+                            .frame(width: 100, height: 39)
+                            .background(.orange)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+
                     }
                     
                     else if paused == true {
                         Text("Play")
+                            .frame(width: 100, height: 39)
+                            .background(.orange)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
                     }
                 }
-                .foregroundColor(.orange)
+                .foregroundColor(.white)
             }
             
         }
