@@ -19,10 +19,11 @@ struct GamePlay: View {
     }
     var body: some View {
         VStack{
-            Text("\(snakePositions.count - 5)")
-                .font(Font.custom(
-                    "Times New Roman", size: 175))
+            
             ZStack {
+                Text("\(snakePositions.count - 5)")
+                                .font(Font.custom(
+                                    "Times New Roman", size: 175))
                 ForEach(0..<snakePositions.count, id:\.self) { index in
                     Rectangle()
                         .frame(width: 25, height: 25)
@@ -50,7 +51,7 @@ struct GamePlay: View {
                     Image(systemName: "arrowtriangle.up.square.fill")
                 }.scaleEffect(9)
                     .offset(y: -230)
-                    .opacity(0.7)
+                    .opacity(0.8)
                 Button {
                     if SnakeDirection != .up{
                         SnakeDirection = .down}
@@ -59,7 +60,7 @@ struct GamePlay: View {
                     Image(systemName: "arrowtriangle.down.square.fill")
                 }.scaleEffect(9)
                     .offset(y: -80)
-                    .opacity(0.7)
+                    .opacity(0.8)
                 Button {
                     if SnakeDirection != .right{
                         SnakeDirection = .left}
@@ -68,7 +69,7 @@ struct GamePlay: View {
                     Image(systemName: "arrowtriangle.backward.square.fill")
                 }.scaleEffect(9)
                     .offset(x: -150, y: -80)
-                    .opacity(0.7)
+                    .opacity(0.8)
                 Button {
                     if SnakeDirection != .left{
                         SnakeDirection = .right}
@@ -77,7 +78,7 @@ struct GamePlay: View {
                     Image(systemName: "arrowtriangle.forward.square.fill")
                 }.scaleEffect(9)
                     .offset(x: 150, y:-80)
-                    .opacity(0.7)
+                    .opacity(0.8)
             }
         }  .alert(isPresented: $gameOver) {
             Alert(title: Text("You Died"), message: Text(" you hit the wall"), dismissButton: .default(Text("Restart"), action: {
@@ -99,7 +100,7 @@ struct GamePlay: View {
                         .frame(width: 100, height: 39)
                         .background(.orange)
                         .clipShape(RoundedRectangle(cornerRadius: 15))
-                        .opacity(0.7)
+                        .opacity(0.8)
                 }
             }
             ToolbarItem {
@@ -121,7 +122,7 @@ struct GamePlay: View {
                             .frame(width: 100, height: 39)
                             .background(.orange)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .opacity(0.7)
+                            .opacity(0.8)
 
                     }
                     
@@ -130,7 +131,7 @@ struct GamePlay: View {
                             .frame(width: 100, height: 39)
                             .background(.orange)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .opacity(0.7)
+                            .opacity(0.8)
                     }
                 }
                 .foregroundColor(.white)
