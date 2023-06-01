@@ -96,6 +96,7 @@ struct GamePlay: View {
                         .frame(width: 100, height: 39)
                         .background(.orange)
                         .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .opacity(0.7)
                 }
             }
             ToolbarItem {
@@ -117,6 +118,7 @@ struct GamePlay: View {
                             .frame(width: 100, height: 39)
                             .background(.orange)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .opacity(0.7)
 
                     }
                     
@@ -125,6 +127,7 @@ struct GamePlay: View {
                             .frame(width: 100, height: 39)
                             .background(.orange)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .opacity(0.7)
                     }
                 }
                 .foregroundColor(.white)
