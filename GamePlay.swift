@@ -49,7 +49,7 @@ struct GamePlay: View {
                     else {}
                 } label: {
                     Image(systemName: "arrowtriangle.up.square.fill")
-                }.scaleEffect(9)
+                }.scaleEffect(7)
                     .offset(y: -230)
                     .opacity(0.8)
                 Button {
@@ -58,7 +58,7 @@ struct GamePlay: View {
                     else {}
                 } label: {
                     Image(systemName: "arrowtriangle.down.square.fill")
-                }.scaleEffect(9)
+                }.scaleEffect(7)
                     .offset(y: -80)
                     .opacity(0.8)
                 Button {
@@ -67,7 +67,7 @@ struct GamePlay: View {
                     else {}
                 } label: {
                     Image(systemName: "arrowtriangle.backward.square.fill")
-                }.scaleEffect(9)
+                }.scaleEffect(7)
                     .offset(x: -150, y: -80)
                     .opacity(0.8)
                 Button {
@@ -76,7 +76,7 @@ struct GamePlay: View {
                     else {}
                 } label: {
                     Image(systemName: "arrowtriangle.forward.square.fill")
-                }.scaleEffect(9)
+                }.scaleEffect(7)
                     .offset(x: 150, y:-80)
                     .opacity(0.8)
             }
