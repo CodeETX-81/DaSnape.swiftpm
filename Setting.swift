@@ -22,7 +22,7 @@ struct Settings: View {
                     SnakeColor = .green
                 }
                 .frame(width: 400, height: 150)
-                .foregroundColor(.white)
+                .foregroundColor(.yellow)
                 .background(.green)
                 .font(.system(size: 80))
                 .cornerRadius(80)
@@ -31,7 +31,7 @@ struct Settings: View {
                     SnakeColor = .red
                 }
                 .frame(width: 400, height: 150)
-                .foregroundColor(.white)
+                .foregroundColor(.blue)
                 .background(.red)
                 .font(.system(size: 80))
                 .cornerRadius(80)
@@ -41,7 +41,7 @@ struct Settings: View {
                     SnakeColor = .purple
                 }
                 .frame(width: 400, height: 150)
-                .foregroundColor(.white)
+                .foregroundColor(.green)
                 .background(.purple)
                 .font(.system(size: 80))
                 .cornerRadius(80)
