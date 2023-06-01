@@ -8,7 +8,7 @@ struct GamePlay: View {
     @State var paused = false
     @State var gameOver = false
     @Binding var SnakeColor:Color
-    @State var timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
+    @State var timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     @State var snakePositions: [CGPoint] = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
     @State var foodPosition: CGPoint = CGPoint(x: 200, y: 200)
     enum SnakeDirections{
@@ -79,6 +79,8 @@ struct GamePlay: View {
         }  .alert(isPresented: $gameOver) {
             Alert(title: Text("You Died"), message: Text(" you hit the wall"), dismissButton: .default(Text("Restart"), action: {
                 snakePositions = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
+                timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
+                paused = false
             }))
         }
         .background(.blue)
@@ -103,11 +105,11 @@ struct GamePlay: View {
                     }
                     
                     else if paused == true {
-                        timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
+                        timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
                     }
                     paused.toggle()
                     
-                
+                    
                 } label: {
                     
                     if paused == false {
@@ -150,9 +152,12 @@ struct GamePlay: View {
             snakePositions[index] = previousSnakePosition
             previousSnakePosition = currentSnakePostion
         }
-        if snakePositions[0].x >= screenWidth || snakePositions[0].x <= 0  || snakePositions[0].y >= screenHeight || snakePositions[0].y <= 0 {
+        if snakePositions[0].x >= screenWidth || snakePositions[0].x <= 0  || snakePositions[0].y >= screenHeight - 25 || snakePositions[0].y <= 0 {
             gameOver = true
             print(gameOver)
+            timer.upstream.connect().cancel()
+            paused = true
+            
         }
     }
     func updateSnakeSize(){
