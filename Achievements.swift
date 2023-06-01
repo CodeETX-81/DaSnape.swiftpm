@@ -8,7 +8,7 @@ struct Achievements: View {
     var body: some View {
        
         ZStack {
-            Color.orange
+            Color.white
                 .font(.largeTitle)
         
         .ignoresSafeArea() // 1
@@ -16,16 +16,21 @@ struct Achievements: View {
         
         
             VStack{
-                Button("You actually got the game?!") {
+                Button("You actually got the game?") {
                     showingAlert1 = true
                 }
-                .font(.title)
-                .frame(maxWidth: .infinity)
+                .font(Font.custom(
+                    "Times New Roman", size: 70))
+                .foregroundColor(.blue)
+                .frame(maxWidth: .infinity, maxHeight: 200)
                 .background(.orange)
+                .cornerRadius(80)
+                .padding()
                 
                 .alert(isPresented:$showingAlert1) {
                     Alert(
                         title: Text("Open the game for the first time")
+                            
                         
                         
                     )
@@ -35,10 +40,15 @@ struct Achievements: View {
                 
                 Button("So this is a grape") {
                     showingAlert2 = true
+                
                 }
-                .font(.title)
-                .frame(maxWidth: .infinity)
+                .font(Font.custom(
+                    "Times New Roman", size: 70))
+                .foregroundColor(.blue)
+                .frame(maxWidth: .infinity, maxHeight: 200)
                 .background(.orange)
+                .cornerRadius(80)
+                .padding()
                 
                 .alert(isPresented:$showingAlert2) {
                     Alert(
@@ -50,10 +60,13 @@ struct Achievements: View {
                 Button("Theres a wall there") {
                     showingAlert3 = true
                 }
-                .font(.title)
-                .frame(maxWidth: .infinity)
+                .font(Font.custom(
+                    "Times New Roman", size: 70))
+                .foregroundColor(.blue)
+                .frame(maxWidth: .infinity, maxHeight: 200)
                 .background(.orange)
-                
+                .cornerRadius(80)
+                .padding()
                 .alert(isPresented:$showingAlert3) {
                     Alert(
                         title: Text("Die for the first time")
@@ -66,9 +79,13 @@ struct Achievements: View {
                 Button("Where did the board go") {
                     showingAlert4 = true
                 }
-                .font(.title)
-                .frame(maxWidth: .infinity)
+                .font(Font.custom(
+                    "Times New Roman", size: 70))
+                .foregroundColor(.blue)
+                .frame(maxWidth: .infinity, maxHeight: 200)
                 .background(.orange)
+                .cornerRadius(80)
+                .padding()
                 
                 .alert(isPresented:$showingAlert4) {
                     Alert(
