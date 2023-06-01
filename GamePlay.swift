@@ -19,10 +19,11 @@ struct GamePlay: View {
     }
     var body: some View {
         VStack{
-            Text("\(snakePositions.count - 5)")
-                .font(Font.custom(
-                    "Times New Roman", size: 175))
+            
             ZStack {
+                Text("\(snakePositions.count - 5)")
+                                .font(Font.custom(
+                                    "Times New Roman", size: 175))
                 ForEach(0..<snakePositions.count, id:\.self) { index in
                     Rectangle()
                         .frame(width: 25, height: 25)
