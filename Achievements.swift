@@ -8,7 +8,7 @@ struct Achievements: View {
     var body: some View {
        
         ZStack {
-            Color.white
+            Color.blue
                 .font(.largeTitle)
         
         .ignoresSafeArea() // 1
