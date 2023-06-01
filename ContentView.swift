@@ -2,6 +2,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State var SnakeColor:Color = Color.orange
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
+    
     var body: some View {
         ZStack{
             NavigationView {
