@@ -1,13 +1,14 @@
 import SwiftUI
 
 struct GamePlay: View {
+    @Environment(\.dismiss) private var dismiss
     @State var SnakeDirection:SnakeDirections
-    var screenWidth = UIScreen.main.bounds.width
-    var screenHeight = UIScreen.main.bounds.height
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
     @State var paused = false
     @State var gameOver = false
     @Binding var SnakeColor:Color
-    @State var timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
+    @State var timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     @State var snakePositions: [CGPoint] = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
     @State var foodPosition: CGPoint = CGPoint(x: 200, y: 200)
     enum SnakeDirections{
@@ -78,12 +79,26 @@ struct GamePlay: View {
         }  .alert(isPresented: $gameOver) {
             Alert(title: Text("You Died"), message: Text(" you hit the wall"), dismissButton: .default(Text("Restart"), action: {
                 snakePositions = [CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150), CGPoint(x: 150, y: 150)]
+                timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
+                paused = false
             }))
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.blue)
         .ignoresSafeArea()
+        .navigationBarBackButtonHidden()
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Back")
+                        .foregroundColor(.white)
+                        .frame(width: 100, height: 39)
+                        .background(.orange)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .opacity(0.7)
+                }
+            }
             ToolbarItem {
                 Button {
                     if paused == false {
@@ -91,23 +106,31 @@ struct GamePlay: View {
                     }
                     
                     else if paused == true {
-                        timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
+                        timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
                     }
                     paused.toggle()
                     
-                
+                    
                 } label: {
                     
                     if paused == false {
                         Text("Pause")
-                            
+                            .frame(width: 100, height: 39)
+                            .background(.orange)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .opacity(0.7)
+
                     }
                     
                     else if paused == true {
                         Text("Play")
+                            .frame(width: 100, height: 39)
+                            .background(.orange)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .opacity(0.7)
                     }
                 }
-                .foregroundColor(.orange)
+                .foregroundColor(.white)
             }
             
         }
@@ -132,17 +155,20 @@ struct GamePlay: View {
             snakePositions[index] = previousSnakePosition
             previousSnakePosition = currentSnakePostion
         }
-        if snakePositions[0].x >= screenWidth || snakePositions[0].x <= 0  || snakePositions[0].y >= screenHeight || snakePositions[0].y <= 0 {
+        if snakePositions[0].x >= screenWidth || snakePositions[0].x <= 0  || snakePositions[0].y >= screenHeight - 25 || snakePositions[0].y <= 0 {
             gameOver = true
             print(gameOver)
+            timer.upstream.connect().cancel()
+            paused = true
+            
         }
     }
     func updateSnakeSize(){
         if self.snakePositions[0] == self.foodPosition{
             self.snakePositions.append(self.snakePositions[0])
-            let randomX = Int(Int.random(in: 0...Int(screenWidth))/25) * 25
+            let randomX = Int(Int.random(in: 25...Int(screenWidth))/25) * 25
             print(randomX)
-            let randomY = Int(Int.random(in: 0...Int(screenHeight))/25) * 25
+            let randomY = Int(Int.random(in: 25...Int(screenHeight))/25) * 25
             print(randomY)
             foodPosition = CGPoint(x: randomX, y: randomY)
         }

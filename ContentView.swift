@@ -2,6 +2,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State var SnakeColor:Color = Color.orange
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
+    
     var body: some View {
         ZStack{
             NavigationView {
@@ -43,7 +46,7 @@ struct ContentView: View {
                                     "Times New Roman", size: 49))
                         }
                     }
-                }.scaleEffect(1.7)
+                }.scaleEffect((screenWidth/1500) * 3 )
             }.navigationViewStyle(.stack)
         }
     }
